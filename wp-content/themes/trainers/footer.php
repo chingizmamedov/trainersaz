@@ -9,8 +9,8 @@
  * @package trainers
  */
 
-?>
 
+?>
 </div>
   <!-- Content -->
     <!-- footer -->
@@ -64,9 +64,10 @@
       <div class="container">
           <span>© Butun haqlar qorunur Trainer.az 2019</span>
       </div>
-	</div>
-	<?php wp_footer(); ?>
+    </div>
+<?php
+wp_footer();
+?>
+</body>
   <!-- footer -->
-  <script src="js/index.js"></script>
-<script type="text/javascript" src="main.js"></script></body>
 </html>

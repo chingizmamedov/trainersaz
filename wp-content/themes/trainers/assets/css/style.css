@@ -2393,6 +2393,9 @@ i {
 .cateqory__item {
   position: relative; }
 
+  .category__item__wrap {
+    padding: 10px; }
+
 .cateqory__name {
   position: absolute;
   flex-basis: content;
