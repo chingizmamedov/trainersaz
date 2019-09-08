@@ -31,14 +31,34 @@
         <div class="mobile__menu__close"></div>
         <div class="mobile__menu">
             <nav>
-                <ul class="mobile__menu__list">
+                <?php 
+                    wp_nav_menu( [
+                        'theme_location'  => 'mobile_menu',
+                        'menu'            => 'Mobile menu',
+                        'container'       => 'false',
+                        'container_class' => '', 
+                        'container_id'    => '',
+                        'menu_class'      => 'd-flex mobile__menu__list', 
+                        'menu_id'         => '',
+                        'echo'            => true,
+                        'fallback_cb'     => 'wp_page_menu',
+                        'before'          => '',
+                        'after'           => '',
+                        'link_before'     => '',
+                        'link_after'      => '',
+                        'items_wrap'      => '<ul class="%2$s">%3$s</ul>',
+                        'depth'           => 0,
+                        'walker'          => '',
+                    ] );
+                ?>
+                <!-- <ul class="mobile__menu__list">
                     <li><a class="mobile__menu_link" href="#">Katalog</a></li>
                     <li><a class="mobile__menu_link" href="#">Telimler</a></li>
                     <li><a class="mobile__menu_link" href="#">Telimciler</a></li>
                     <li><a class="mobile__menu_link" href="#">Meqaleler</a></li>
                     <li><a class="mobile__menu_link" href="#">Haqqimizda</a></li>
                     <li><a class="mobile__menu_link" href="tel:0129380">+994(55) 365-55-55</a></li>
-                </ul>
+                </ul> -->
             </nav>
         </div>
     </div>
@@ -55,9 +75,29 @@
                         </a>
                     <?php endif;?>                
                 <div class="header__top_left">
-                    <a class="header__top_link" href="tel:0129380">+994(55) 365-55-55</a>
-                    <a class="header__top_link" href="#">Geydiyyat</a>
-                    <a class="header__top_link" href="#">Giris</a>
+                <?php 
+                wp_nav_menu( [
+                    'theme_location'  => 'header_top_menu',
+                    'menu'            => 'Header top menu',
+                    'container'       => 'false', 
+                    'container_class' => '', 
+                    'container_id'    => '',
+                    'menu_class'      => 'menu', 
+                    'menu_id'         => '',
+                    'echo'            => true,
+                    'fallback_cb'     => 'wp_page_menu',
+                    'before'          => '',
+                    'after'           => '',
+                    'link_before'     => '',
+                    'link_after'      => '',
+                    'items_wrap'      => '<ul class="%2$s">%3$s</ul>',
+                    'depth'           => 0,
+                    'walker'          => '',
+                ] );
+                ?>
+                    <!-- <a class="header__top_link" href="tel:0129380">+994(55) 365-55-55</a> -->
+                    <!-- <a class="header__top_link" href="#">Geydiyyat</a> -->
+                    <!-- <a class="header__top_link" href="#">Giris</a> -->
                 </div>
             </div>
             
@@ -70,13 +110,33 @@
                     </span>
                 </button>
                 <nav class="navigation">
-                    <ul class="d-flex">
+                    <?php 
+                        wp_nav_menu( [
+                            'theme_location'  => 'header_bottom_menu',
+                            'menu'            => 'Header bottom menu',
+                            'container'       => 'false',
+                            'container_class' => '', 
+                            'container_id'    => '',
+                            'menu_class'      => 'd-flex main-menu', 
+                            'menu_id'         => '',
+                            'echo'            => true,
+                            'fallback_cb'     => 'wp_page_menu',
+                            'before'          => '',
+                            'after'           => '',
+                            'link_before'     => '',
+                            'link_after'      => '',
+                            'items_wrap'      => '<ul class="%2$s">%3$s</ul>',
+                            'depth'           => 0,
+                            'walker'          => '',
+                        ] );
+                    ?>
+                    <!-- <ul class="d-flex">
                         <li><a class="header__bottom_link" href="#">Katalog</a></li>
                         <li><a class="header__bottom_link" href="#">Telimler</a></li>
                         <li><a class="header__bottom_link" href="#">Telimciler</a></li>
                         <li><a class="header__bottom_link" href="#">Meqaleler</a></li>
                         <li><a class="header__bottom_link" href="#">Haqqimizda</a></li>
-                    </ul>
+                    </ul> -->
                 </nav>
                 <div class="search">
                     <input type="text" class="search__input" placeholder="Katalog uzre axtaris">
@@ -105,5 +165,5 @@
 								</div>
 						</div>
 						<!-- BreadCrumb -->
-						<div id="page container">
+						<div id="page container" class="container">
 							<?php endif; ?>

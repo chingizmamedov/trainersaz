@@ -15,15 +15,64 @@
 get_header();
 ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+	<div class="container">
+
+
 
 		<?php
 		while ( have_posts() ) :
 			the_post();
-
-			get_template_part( 'template-parts/content', 'page' );
-
+			?>
+			<div class="container">
+			<div class="about__head">
+				<img src="<?php the_field("image-for-pages"); ?>" alt="">
+			</div>
+			<div class="about__content">
+				<h1 class="about__title"><?php the_title(); ?></h1>
+				<p class="about__text"><?php echo get_the_content(); ?></p>
+			</div>
+			<h2 class="about__subtitle">Elaqe</h2>
+			<div class="about__info d-flex flex-column ">
+					<a class="about__info__tel about__info__item" href="tel:<?php $num = get_field("phone"); $regArr = ['(', ')', '-', ' ']; $outputTel = str_replace($regArr, '', $num); echo $outputTel;?>"><?php the_field("phone"); ?></a>
+					<a class="about__info__mail about__info__item" href="#"><?php the_field("mail_addres"); ?></a>
+					<span class="about__info__clock about__info__item"><?php the_field("start-work-time"); ?> : <?php the_field("end-work-time"); ?></span>
+			</div>
+			<address class="about__address"><span>Unvan:</span> Azerbaijan, EhmedAga kuc., ev 23</address>
+			<div class="container">
+					<div class="row">
+							<div class="col-12 col-md-7 nopadding map-wrap">
+							<div id="map"></div>
+							</div>
+							<div class="col-12 col-md-5 justify-content-center d-flex">
+									<div class="about__form">
+									
+											<div class="about__form__header">
+													<span class="about__form__title">Kursunuzu insanlara catdirmaq
+															isteryirsiniz?</span>
+													<span class="about__form__subtitle">Bizimle elaqe saxlayin, biz size komek ederik!...</span>
+											</div>
+												<?php echo do_shortcode( '[contact-form-7 id="114" title="Contact form 1" html_class="about__form__body d-flex"]' ); ?>
+											<!-- <form action="#" class="about__form__body d-flex">
+													<label class="about__form__item">
+															<span class="about__form__name">Tam ad:</span>
+															<input class="about__form__inp" type="text" placeholder="Tam ad daxil edin">
+													</label>
+													<label class="about__form__item">
+															<span class="about__form__name">Email:</span>
+															<input class="about__form__inp" type="text" placeholder="Email daxil edin">
+													</label>
+													<label class="about__form__item">
+															<span class="about__form__name">Tel:</span>
+															<input class="about__form__inp" type="email" placeholder="Telefonunuzu daxil edin">
+													</label>
+													<button class="m-btn m-btn__about" type="submit">Gonder</button>
+											</form> -->
+										</div>
+									</div>
+							</div>
+					</div>
+			</div>
+			<?php
 			// If comments are open or we have at least one comment, load up the comment template.
 			if ( comments_open() || get_comments_number() ) :
 				comments_template();
@@ -31,10 +80,18 @@ get_header();
 
 		endwhile; // End of the loop.
 		?>
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
-
+	</div>
+	
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 8
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCRV1bAttcfhchzGmawn3m_UbXd3Mi72o&callback=initMap"
+    async defer></script>
 <?php
-get_sidebar();
 get_footer();

@@ -20,9 +20,6 @@ jQuery(function($) {
     $(this).parent().toggle()
   })
 
-
-
-
   $('.card__slider__wrap').slick({
     infinite: true,
     slidesToShow: 3,
@@ -48,6 +45,7 @@ jQuery(function($) {
     ]
   });
 
+
   $(window).scroll(function () {
     var headerBotPos = $('.header__top').offset().top + $('.header__top').outerHeight() - $(window).scrollTop()
 
@@ -65,5 +63,9 @@ jQuery(function($) {
     }
 
   })
+
+
+
+
 
 })

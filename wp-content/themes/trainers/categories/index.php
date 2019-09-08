@@ -91,10 +91,6 @@ if($roma) {
   $the_query = new WP_Query( $args ); ?>
   
   <?php if ( $the_query->have_posts() ) : ?>
-  
-      <!-- pagination here -->
-      <?php //var_dump($the_query); ?>
-      <!-- the loop -->
       <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
       <?php $build = get_field("course-build"); ?>
       <?php $techer = get_field("curse-teacher");?>
@@ -105,15 +101,23 @@ if($roma) {
                   <img class="card__img" src="<?php the_field("course-img") ?>" alt="">
               </div>
               <div class="card__footer">
-                  <p class="card__title"><?php the_title(); ?></p>
-                  <!-- это типа ссылка --><a href="<?php echo $techer[0]->guid; ?>" class="card__subtitle"><?php echo $techer[0]->post_title; ?></a>
-                  <!-- это типа ссылка --><a href="<?php echo $build[0]->guid; ?>" class="card__subtitle"><?php echo $build[0]->post_title; ?></a><br>
+                  <div>
+                      <a href="<?php the_permalink(); ?>" class="card__title"><?php the_title(); ?></a>
+                  </div>
+                  <div>
+                  <?php if($build[0]): ?>
+                      <div>
+                          <span>Telim merkezi</span>
+                          <a href="<?php echo $build[0]->guid; ?>" class="card__course"><?php echo $build[0]->post_title; ?></a>
+                      </div>
+                  <?php endif; ?>
+                  <span>Telimci:</span>
+                      <a href="<?php echo $techer[0]->guid; ?>" class="card__subtitle"><?php echo $techer[0]->post_title; ?></a>
+                  </div>
                   <div class="card__widget">
                       <span class="card__badge"><?php the_field("price") ?> AZN</span>
                       <span class="card__badge">1 ay, 18 saat</span>
-                      <a href="<?php the_permalink(); ?>" >link</a> <!-- это типа ссылка -->
                   </div>
-                  <span>slider-place: <?php the_field('slider-place'); ?></span>
               </div>
             </div>
           </div>

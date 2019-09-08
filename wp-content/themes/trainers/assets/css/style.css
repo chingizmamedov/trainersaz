@@ -363,8 +363,6 @@ textarea {
   color: #000;
   padding: 0.2em 0;
 }
-/*# sourceMappingURL=normalize.css.map */
-@charset "UTF-8";
 /*!
  * Bootstrap Grid v4.0.0 (https://getbootstrap.com)
  * Copyright 2011-2018 The Bootstrap Authors
@@ -2438,12 +2436,37 @@ i {
     padding: 25px 20px;
     text-align: left; }
   .card__title {
+    display: inline-block;
     font-weight: bold;
+    text-decoration: none;
+    color: #000;
     font-size: 26px;
     line-height: 30px;
-    margin-bottom: 9px; }
+    margin-bottom: 12px; }
+    .card__title:hover {
+      text-decoration: underline;
+    }
+    .card__title:visited {
+      color: #1F2F55;
+      margin-bottom: 5px;
+    }
   .card__subtitle {
+    text-decoration: none;
+    color: #000;
+    display: inline-block;
     margin-bottom: 40px; }
+    .card__subtitle:hover {
+      text-decoration: underline;}
+      .card__subtitle:visited {
+        color: #1F2F55; }
+  .card__course {
+    text-decoration: none;
+    color: #000;
+    display: inline-block;
+    margin-bottom: 7px;
+  }
+  .card__course:hover {
+    text-decoration: underline; }
   .card__badge {
     border-radius: 15px;
     background: #1F2F55;
@@ -2478,8 +2501,8 @@ i {
     content: url(/assets/icon/navigation/arrow_forward_ios_24px.svg); }
 
 .slick-list {
-  margin-left: -10px;
-  margin-right: -10px; }
+  margin-left: -10px !important;
+  margin-right: -10px !important; }
 
 .slick-track {
   padding-top: 15px;
@@ -2509,6 +2532,35 @@ i {
     font-size: 16px; }
   .header__top_link:not(:last-child) {
     margin-right: 20px; }
+
+    .header__top_left .menu {
+      display: flex;
+    }
+    .header__top_left .menu .menu-item:not(:last-child) {
+      margin-right: 20px;
+    }
+    .header__top_left .menu .menu-item a {
+      text-decoration: none;
+      color: #fff;
+    }
+    .header__top_left .menu .menu-item a:hover {
+      text-decoration: underline;
+    }
+
+    .main-menu > .menu-item {
+      margin-right: 14px;
+    }
+    .main-menu > .menu-item a {
+      text-transform: uppercase;
+      margin-right: 14px;
+    }
+
+    .menu-item a {
+      text-decoration: none;
+    }
+    .menu-item a:visited {
+      color: #000;
+    }
 
 .header__bottom {
   align-items: center;
@@ -2765,19 +2817,19 @@ i {
     margin-bottom: 7px; }
   .about__info__tel:before {
     position: absolute;
-    content: url(/assets/phone_24px.png);
+    content: url(../img/icon/communication/phone_24px_black.svg);
     fill: black;
     top: 1px;
     left: -19px; }
   .about__info__mail:before {
     position: absolute;
-    content: url(/assets/icon/communication/email_24px_black.svg);
+    content: url(../img/icon/communication/email_24px_black.svg);
     fill: black;
     top: 1px;
     left: -19px; }
   .about__info__clock:before {
     position: absolute;
-    content: url(/assets/icon/device/access_time_24px_black.svg);
+    content: url(../img/icon/device/access_time_24px_black.svg);
     fill: black;
     top: 1px;
     left: -19px; }
@@ -2808,7 +2860,7 @@ i {
     padding: 6px; }
   .about__form__header {
     padding: 20px;
-    background-image: url(/assets/aboutformbg.jpg);
+    background-image: url(../img/aboutformbg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     color: #fff; }
@@ -2840,7 +2892,10 @@ i {
 
 .map-wrap {
   margin-bottom: 25px; }
-
+#map {
+  width: 100%;
+  height: 100%;
+}
 .post__container {
   margin-bottom: 60px; }
 

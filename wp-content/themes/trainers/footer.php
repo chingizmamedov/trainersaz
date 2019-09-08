@@ -20,23 +20,63 @@
               <div class="footer__item col-12 mb-2 col-sm-6 col-lg-3">
                   <h3 class="footer__title">Menu</h3>
                   <nav>
-                      <ul>
+                        <?php 
+                        wp_nav_menu( [
+                            'theme_location'  => 'header_to_menu',
+                            'menu'            => 'Main footer menu',
+                            'container'       => 'false', 
+                            'container_class' => '', 
+                            'container_id'    => '',
+                            'menu_class'      => '', 
+                            'menu_id'         => '',
+                            'echo'            => true,
+                            'fallback_cb'     => 'wp_page_menu',
+                            'before'          => '',
+                            'after'           => '',
+                            'link_before'     => '',
+                            'link_after'      => '',
+                            'items_wrap'      => '<ul class="%2$s">%3$s</ul>',
+                            'depth'           => 0,
+                            'walker'          => '',
+                        ] );
+                        ?>
+                      <!-- <ul>
                           <li><a class="footer__link" href="#">Telimler</a></li>
                           <li><a class="footer__link" href="#">Telimciler</a></li>
                           <li><a class="footer__link" href="#">Meqaleler</a></li>
                           <li><a class="footer__link" href="#">Haqqimizda</a></li>
-                      </ul>
+                      </ul> -->
                   </nav>
               </div>
               <div class="footer__item col-12 mb-2 col-sm-6 col-lg-3">
                   <h3 class="footer__title">Sirket haqda</h3>
                   <nav>
-                      <ul>
+                  <?php 
+                        wp_nav_menu( [
+                            'theme_location'  => 'header_to_menu',
+                            'menu'            => 'Menu footer about',
+                            'container'       => 'false', 
+                            'container_class' => '', 
+                            'container_id'    => '',
+                            'menu_class'      => '', 
+                            'menu_id'         => '',
+                            'echo'            => true,
+                            'fallback_cb'     => 'wp_page_menu',
+                            'before'          => '',
+                            'after'           => '',
+                            'link_before'     => '',
+                            'link_after'      => '',
+                            'items_wrap'      => '<ul class="%2$s">%3$s</ul>',
+                            'depth'           => 0,
+                            'walker'          => '',
+                        ] );
+                        ?>
+                      <!-- <ul>
                           <li><a class="footer__link" href="#">Melumat tehlukesizliyi</a></li>
                           <li><a class="footer__link" href="#">FAG</a></li>
                           <li><a class="footer__link" href="#">Meqaleler</a></li>
                           <li><a class="footer__link" href="#">Haqqimizda</a></li>
-                      </ul>
+                      </ul> -->
                   </nav>
               </div>
               <div class="footer__item col-12 mb-2 col-sm-6 col-lg-3">

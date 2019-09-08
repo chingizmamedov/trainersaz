@@ -29,16 +29,28 @@ add_action('wp_footer', 'theme_scripts');
 function theme_scripts () {
 
 	wp_enqueue_script('jquery');
-	//wp_enqueue_script( 'slick-js',  get_theme_file_uri( '/assets/js/slick.js' ) );
+	wp_enqueue_script( 'slick-js',  get_theme_file_uri( '/assets/js/slick.js' ) );
 	wp_enqueue_script( 'mainjs',  get_theme_file_uri( '/assets/js/script.js' ) );
+	// wp_enqueue_script( 'mainjs',  'https://maps.googleapis.com/maps/api/js?key=AIzaSyCCRV1bAttcfhchzGmawn3m_UbXd3Mi72o' );
 
 }
 
 
+// Регистрация меню
+
+add_action( 'after_setup_theme', function(){
+	register_nav_menus( [
+		'header_top_menu' => 'Верхнее меню в шапке',
+		'header_bottom_menu' => 'Нижнее меню в шапке',
+		'footer_main_menu' => 'Главное меню в подвале',
+		'footer_about_menu' => 'Меню о подолнительных информациях в подвале',
+		'footer_info_menu' => 'Меню с информацией в подвале',
+		'mobile_menu' => 'Меню для мобильного экрана'
+	] );
+} );
 
 
-
-
+// Регистрация видов постов
 add_action( 'init', 'register_post_types' );
 function register_post_types(){
 	register_post_type('courses', array(
@@ -107,6 +119,44 @@ function register_post_types(){
 		'rest_base'           => null, // $post_type. C WP 4.7
 		'menu_position'       => 4,
 		'menu_icon'           => 'dashicons-building', 
+		//'capability_type'   => 'post',
+		//'capabilities'      => 'post', // массив дополнительных прав для этого типа записи
+		//'map_meta_cap'      => null, // Ставим true чтобы включить дефолтный обработчик специальных прав
+		'hierarchical'        => false,
+		'supports'            => [ 'title', 'editor', 'title', 'editor', 'thumbnail', 'custom-fields','post-formats' ], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
+		'taxonomies'          => [],
+		'has_archive'         => false,
+		'rewrite'             => true,
+		'query_var'           => true,
+	) );
+	register_post_type('articles', array(
+		'label'  => null,
+		'labels' => array(
+			'name'               => 'Статья', // основное название для типа записи
+			'singular_name'      => 'Статья', // название для одной записи этого типа
+			'add_new'            => 'Добавить статью', // для добавления новой записи
+			'add_new_item'       => 'Добавление статьи', // заголовка у вновь создаваемой записи в админ-панели.
+			'edit_item'          => 'Редактирование статьи', // для редактирования типа записи
+			'new_item'           => 'Новое статья', // текст новой записи
+			'view_item'          => 'Смотреть статью', // для просмотра записи этого типа.
+			'search_items'       => 'Искать статью', // для поиска по этим типам записи
+			'not_found'          => 'Не найдено', // если в результате поиска ничего не было найдено
+			'not_found_in_trash' => 'Не найдено в корзине', // если не было найдено в корзине
+			'parent_item_colon'  => '', // для родителей (у древовидных типов)
+			'menu_name'          => 'Статьи', // название меню
+		),
+		'description'         => 'Список всех статей',
+		'public'              => true,
+		 'publicly_queryable'  => true, // зависит от public
+		 'exclude_from_search' => true, // зависит от public
+		// 'show_ui'             => null, // зависит от public
+		 'show_in_nav_menus'   => true, // зависит от public
+		'show_in_menu'        => null, // показывать ли в меню адмнки
+		// 'show_in_admin_bar'   => null, // зависит от show_in_menu
+		'show_in_rest'        => null, // добавить в REST API. C WP 4.7
+		'rest_base'           => null, // $post_type. C WP 4.7
+		'menu_position'       => 4,
+		'menu_icon'           => 'dashicons-format-quote', 
 		//'capability_type'   => 'post',
 		//'capabilities'      => 'post', // массив дополнительных прав для этого типа записи
 		//'map_meta_cap'      => null, // Ставим true чтобы включить дефолтный обработчик специальных прав
@@ -431,3 +481,20 @@ if( is_admin() && ! class_exists('Term_Meta_Image') ){
  *     Добавил физическое удаление картинки (файла вложения) при удалении его у термина.
  * 2.8 Исправил ошибку удаления картинки.
  */
+
+
+ // acf google map
+
+ function my_acf_google_map_api( $api ){
+	
+	$api['key'] = 'AIzaSyCCRV1bAttcfhchzGmawn3m_UbXd3Mi72o';
+	
+	return $api;
+	
+}
+
+add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
+
+add_action( 'after_setup_theme', function() {
+	add_theme_support( 'pageviews' );
+});
