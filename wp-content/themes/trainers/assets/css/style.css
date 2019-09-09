@@ -2175,7 +2175,13 @@ body {
 i {
   font-style: italic;
   font-weight: 300; }
-
+.logo {
+  color: #fff;
+  text-decoration: none;
+}
+.logo span {
+  margin-top: 3px;
+}
 .beadcrumb {
   display: flex;
   margin-top: 85px;
@@ -2321,7 +2327,7 @@ i {
       position: absolute;
       right: 10px;
       top: 10px;
-      content: url(/assets/icon/hardware/keyboard_arrow_down_24px.svg);
+      content: url(../img/icon/hardware/keyboard_arrow_down_24px.svg);
       width: 10px;
       height: 10px; }
   .dropdawn__list {
@@ -2489,7 +2495,7 @@ i {
     bottom: 0;
     margin: auto;
     cursor: pointer;
-    content: url(/assets/icon/navigation/arrow_forward_ios_24px.svg); }
+    content: url(../img/icon/navigation/arrow_forward_ios_24px.svg); }
   .card__slide__prew {
     position: absolute;
     left: -43px;
@@ -2498,7 +2504,7 @@ i {
     margin: auto;
     cursor: pointer;
     transform: rotate(180deg);
-    content: url(/assets/icon/navigation/arrow_forward_ios_24px.svg); }
+    content: url(../img/icon/navigation/arrow_forward_ios_24px.svg); }
 
 .slick-list {
   margin-left: -10px !important;
@@ -2558,9 +2564,7 @@ i {
     .menu-item a {
       text-decoration: none;
     }
-    .menu-item a:visited {
-      color: #000;
-    }
+    
 
 .header__bottom {
   align-items: center;
@@ -2594,7 +2598,7 @@ i {
     height: 28px;
     padding-left: 31px;
     font-size: 12px;
-    background-image: url(/assets/search_24px.svg);
+    background-image: url(../img/search_24px.svg);
     background-repeat: no-repeat;
     background-position: 9px 7px; }
     .search__input::-webkit-input-placeholder {
@@ -2661,7 +2665,7 @@ i {
   position: absolute;
   top: 19px;
   right: 19px;
-  background-image: url(/assets/icon/content/clear_24px_outlined.svg);
+  background-image: url(../img/icon/content/clear_24px_outlined.svg);
   cursor: pointer;
   transition: .3s; }
   .mobile__menu__close:hover {
@@ -2735,21 +2739,21 @@ i {
     left: -18px;
     top: 2px;
     position: absolute;
-    content: url("/assets/icon/communication/phone_24px_outlined.svg"); }
+    content: url("../img/icon/communication/phone_24px_outlined.svg"); }
   .footer__mail:before {
     width: 14px;
     height: 14px;
     left: -18px;
     top: 2px;
     position: absolute;
-    content: url("/assets/icon/communication/email_24px_outlined.svg"); }
+    content: url("../img/icon/communication/email_24px_outlined.svg"); }
   .footer__clock:before {
     width: 14px;
     height: 14px;
     left: -18px;
     top: 2px;
     position: absolute;
-    content: url("/assets/icon/device/access_time_24px_outlined.svg"); }
+    content: url("../img/icon/device/access_time_24px_outlined.svg"); }
   .footer__btn {
     width: 32px;
     height: 32px;
@@ -2765,7 +2769,7 @@ i {
       left: 0;
       margin: auto;
       position: absolute;
-      content: url("/assets/icon/content/send_24px_outlined.svg"); }
+      content: url("../img/icon/content/send_24px_outlined.svg"); }
   .footer__input {
     font-size: 12px;
     line-height: 14px;
@@ -2778,6 +2782,13 @@ i {
     font-size: 12px;
     line-height: 14px;
     border-top: 1px solid #5972AA; }
+
+.footer-list a {
+  font-size: 12px;
+  line-height: 14px;
+  color: #fff;
+  text-decoration: none;
+}
 
 .about__head {
   width: 100%;

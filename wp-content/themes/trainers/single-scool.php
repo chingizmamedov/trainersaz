@@ -10,20 +10,22 @@
       <span><?php the_field('scool-address'); ?></span>
     </div>
 </div>
+<?php
+$id = get_the_ID();
+$idLEngth = strlen($id);
+​
+?>
       <?php 
 					$args = array("post_type" => "courses",
 						  'meta_query' => array(
                   array(
                     'key' => 'course-build',
-                    // 'value' => array( 'post_type' => 'Jalal Course' ),
-                    // 'value["post_type"]' => 'Jalal Course',
-                    '["value" => "post_type"]' => 'Jalal Course',
+										'value' => 'a:1:{i:0;s:'. $idLEngth .':"'. $id .'";}',
                     'compare' => '=='
                   )
                 )
               );
             $the_query = new WP_Query( $args );
-            var_dump($the_query);
         ?>
         <?php if ( $the_query->have_posts() ) : ?>
 

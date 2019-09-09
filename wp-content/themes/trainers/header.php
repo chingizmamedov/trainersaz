@@ -51,14 +51,6 @@
                         'walker'          => '',
                     ] );
                 ?>
-                <!-- <ul class="mobile__menu__list">
-                    <li><a class="mobile__menu_link" href="#">Katalog</a></li>
-                    <li><a class="mobile__menu_link" href="#">Telimler</a></li>
-                    <li><a class="mobile__menu_link" href="#">Telimciler</a></li>
-                    <li><a class="mobile__menu_link" href="#">Meqaleler</a></li>
-                    <li><a class="mobile__menu_link" href="#">Haqqimizda</a></li>
-                    <li><a class="mobile__menu_link" href="tel:0129380">+994(55) 365-55-55</a></li>
-                </ul> -->
             </nav>
         </div>
     </div>
@@ -66,14 +58,21 @@
     <header class="header">
         <div class="header__top">
             <div class="header__top_container container">
-                <?php
-                    if( is_front_page()): ?>
-                        <img src="<?php echo get_template_directory_uri() ?>/assets/img/logo-white.svg" alt="">
-                    <?php else: ?>
-                        <a href="/" class="logo">
-                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/logo-white.svg" alt="">
-                        </a>
-                    <?php endif;?>                
+            <div class="logo d-flex">
+            <?php
+            if( is_front_page()): ?>
+                <img src="<?php echo get_template_directory_uri() ?>/assets/img/logo-white.svg" alt="">
+                <span>Trainers.az</span>
+            <?php else: ?>
+                <a href="/" class="logo d-flex">
+                    <img src="<?php echo get_template_directory_uri() ?>/assets/img/logo-white.svg" alt="">
+                    <span>Trainers.az</span>
+                </a>
+
+                
+            <?php endif;?>  
+            </div>
+                              
                 <div class="header__top_left">
                 <?php 
                 wp_nav_menu( [

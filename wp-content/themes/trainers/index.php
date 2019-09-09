@@ -20,7 +20,7 @@ get_header();
     <div class="container">
             <div class="row">
             <?php
-                $args = array('exclude' => [1, 9, 10, 11]);
+                $args = array('exclude' => [1, 9, 10, 11, 12, 13]);
                 $terms = get_terms($args);
                 if ($terms) {
                     foreach ($terms as $term): ?>
