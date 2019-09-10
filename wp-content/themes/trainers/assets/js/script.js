@@ -64,20 +64,32 @@ jQuery(function($) {
 
   })
 
-  function getData() {
+  function getData(cateqory) {
     $.ajax({
         url : '/wp-content/themes/trainers/custom/filter.php',
         type: 'GET',
+        data: {
+          cateqory: cateqory
+        },
         success : function (data) {
           console.log(data)
+          if(data.trim() == '') {
+            $(".catalog__list").html('Tessufler bele kurs yoxdur')
+            return
+          }
+          $(".catalog__list").html(data)
         }
     })
   }
 
-  setTimeout(function(){
-    getData()
-  }, 1000)
+  // setTimeout(function(){
+  //   getData()
+  // }, 1000)
 
+  $(".dropdawn__list__item").click(function(){
+    var catData = $(this).attr('data-cat')
+    getData(catData)
+  })
 
 
 

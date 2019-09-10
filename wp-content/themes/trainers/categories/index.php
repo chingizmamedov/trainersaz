@@ -26,14 +26,19 @@ if($roma) {
               <div class="dropdawn">
                 <div class="dropdawn__btn">Kateqoriyalar</div>
                 <div class="dropdawn__list">
-                  <div class="dropdawn__list__item">Xarici diller</div>
-                  <div class="dropdawn__list__item">Bank isleri</div>
-                  <div class="dropdawn__list__item">Universitete hazirliq</div>
-                  <div class="dropdawn__list__item">musiqi dersleri</div>
-                  <div class="dropdawn__list__item">Saglamliq ve gozellik</div>
-                  <div class="dropdawn__list__item">Idman</div>
-                  <div class="dropdawn__list__item">Incesenet</div>
-                  <div class="dropdawn__list__item">Bank isleri</div>
+                <?php
+                    $argsCat = array('exclude' => [1, 9, 10, 11, 12, 13]);
+                    $terms = get_terms($argsCat);
+                    if ($terms) {
+                        foreach ($terms as $term): ?>
+                                            <?php
+                    $image_id = get_term_meta($term->term_id, '_thumbnail_id', 1);
+                        $image_url = wp_get_attachment_image_url($image_id, 'full');
+                        ?>
+                        <div class="dropdawn__list__item" data-cat="<?php echo $term->slug ?>"><?php echo $term->name ?></div>
+                    <?php endforeach;
+                    }
+                ?>
                 </div>
               </div>
             </div>
@@ -115,7 +120,7 @@ if($roma) {
                       <a href="<?php echo $techer[0]->guid; ?>" class="card__subtitle"><?php echo $techer[0]->post_title; ?></a>
                   </div>
                   <div class="card__widget">
-                      <span class="card__badge"><?php the_field("price") ?> AZN</span>
+                      <span class="card__badge"><?php the_field("price"); ?> AZN</span>
                       <span class="card__badge">1 ay, 18 saat</span>
                   </div>
               </div>
