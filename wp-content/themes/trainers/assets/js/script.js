@@ -64,6 +64,20 @@ jQuery(function($) {
 
   })
 
+  function getData() {
+    $.ajax({
+        url : '/wp-content/themes/trainers/custom/filter.php',
+        type: 'GET',
+        success : function (data) {
+          console.log(data)
+        }
+    })
+  }
+
+  setTimeout(function(){
+    getData()
+  }, 1000)
+
 
 
 
