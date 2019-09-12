@@ -94,53 +94,53 @@
                     'walker'          => '',
                 ] );
                 ?>
-                    <!-- <a class="header__top_link" href="tel:0129380">+994(55) 365-55-55</a> -->
-                    <!-- <a class="header__top_link" href="#">Geydiyyat</a> -->
-                    <!-- <a class="header__top_link" href="#">Giris</a> -->
                 </div>
             </div>
             
         </div>
         <div class="header__bottom">
-            <div class="header__bottom_container container d-flex">
-                <button class="d-md-none hamburger hamburger--collapse" type="button">
-                    <span class="hamburger-box">
-                        <span class="hamburger-inner"></span>
-                    </span>
-                </button>
-                <nav class="navigation">
-                    <?php 
-                        wp_nav_menu( [
-                            'theme_location'  => 'header_bottom_menu',
-                            'menu'            => 'Header bottom menu',
-                            'container'       => 'false',
-                            'container_class' => '', 
-                            'container_id'    => '',
-                            'menu_class'      => 'd-flex main-menu', 
-                            'menu_id'         => '',
-                            'echo'            => true,
-                            'fallback_cb'     => 'wp_page_menu',
-                            'before'          => '',
-                            'after'           => '',
-                            'link_before'     => '',
-                            'link_after'      => '',
-                            'items_wrap'      => '<ul class="%2$s">%3$s</ul>',
-                            'depth'           => 0,
-                            'walker'          => '',
-                        ] );
-                    ?>
-                    <!-- <ul class="d-flex">
-                        <li><a class="header__bottom_link" href="#">Katalog</a></li>
-                        <li><a class="header__bottom_link" href="#">Telimler</a></li>
-                        <li><a class="header__bottom_link" href="#">Telimciler</a></li>
-                        <li><a class="header__bottom_link" href="#">Meqaleler</a></li>
-                        <li><a class="header__bottom_link" href="#">Haqqimizda</a></li>
-                    </ul> -->
-                </nav>
-                <div class="search">
-                    <input type="text" class="search__input" placeholder="Katalog uzre axtaris">
+            <div class="header__bottom_wrap">
+                <div class="header__bottom_container container d-flex">
+                    <button class="d-md-none hamburger hamburger--collapse" type="button">
+                        <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                        </span>
+                    </button>
+                    <nav class="navigation">
+                        <?php 
+                            wp_nav_menu( [
+                                'theme_location'  => 'header_bottom_menu',
+                                'menu'            => 'Header bottom menu',
+                                'container'       => 'false',
+                                'container_class' => '', 
+                                'container_id'    => '',
+                                'menu_class'      => 'd-flex main-menu', 
+                                'menu_id'         => '',
+                                'echo'            => true,
+                                'fallback_cb'     => 'wp_page_menu',
+                                'before'          => '',
+                                'after'           => '',
+                                'link_before'     => '',
+                                'link_after'      => '',
+                                'items_wrap'      => '<ul class="%2$s">%3$s</ul>',
+                                'depth'           => 0,
+                                'walker'          => '',
+                            ] );
+                        ?>
+                    </nav>
+                    <div class="search">
+                        <input type="text" class="search__input" placeholder="Katalog uzre axtaris">
+                    </div>
                 </div>
             </div>            
+            <div class="search__list__wrap">
+                <div class="preloader-svg" style="overflow: hidden; display: flex;">
+                    
+                </div>
+                <div class="search__list">
+                    
+                </div>
+            </div>       
         </div>
 		</header>
 		<?php
